@@ -1,4 +1,4 @@
-/* Expense Calculator by Irtaza Rizvi*/
+/* Simple Expense Calculator by Irtaza Rizvi*/
 
 import java.util.*;
 import java.io.*;
