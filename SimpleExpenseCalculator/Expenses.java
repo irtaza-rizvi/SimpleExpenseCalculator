@@ -1,9 +1,10 @@
+
 /* Simple Expense Calculator by Irtaza Rizvi*/
 
 import java.util.*;
 import java.io.*;
 
-public class Expenses {
+public class ExpensesUpdate {
 
 	public static void main(String[] args) throws IOException {
 
@@ -23,11 +24,8 @@ public class Expenses {
 				ArrayList<String> other = new ArrayList<String>();
 
 				// Check again for valid input
-				if (expenses[k].matches("[a-zA-Z]*")
-						&& expenses[k + 1].matches("[0-9][a-z0-9.]*[a-z]")
-						&& !(expenses[k + 1].contains("..")
-								|| expenses[k + 1].matches(".*[.][a-f].*") || expenses[k + 1]
-								.matches(".*[a-f][.].*"))) {
+				if (expenses[k].matches("[a-zA-Z]*") && expenses[k + 1].matches("[0-9][a-z0-9.]*[a-z]")
+						&& expenses[k + 1].matches("([0-9]+([.][0-9])?[a-z]+)+")) {
 					// Make new file
 					PrintStream writer = new PrintStream(expenses[k] + ".txt");
 					writer.println("Expenses for " + expenses[k]);
@@ -36,13 +34,11 @@ public class Expenses {
 					// Parse input data to seperate each expense item
 					while (!end) {
 						cursor1 = i;
-						while (expenses[k + 1].charAt(i) < 'a'
-								|| expenses[k + 1].charAt(i) > 'z') {
+						while (expenses[k + 1].charAt(i) < 'a' || expenses[k + 1].charAt(i) > 'z') {
 							i++;
 						}
 						cursor2 = i;
-						while ((expenses[k + 1].charAt(i) >= 'a' && expenses[k + 1]
-								.charAt(i) <= 'z')
+						while ((expenses[k + 1].charAt(i) >= 'a' && expenses[k + 1].charAt(i) <= 'z')
 								&& i < expenses[k + 1].length() - 1) {
 							i++;
 						}
@@ -53,14 +49,11 @@ public class Expenses {
 							end = true;
 							cursor3++;
 						}
-						String amount = expenses[k + 1].substring(cursor1,
-								cursor2);
-						String item = expenses[k + 1].substring(cursor2,
-								cursor3 + 1);
+						String amount = expenses[k + 1].substring(cursor1, cursor2);
+						String item = expenses[k + 1].substring(cursor2, cursor3 + 1);
 						double d = Double.parseDouble(amount);
 						if (item.endsWith("x")) {
-							other.add(amount + " "
-									+ item.substring(0, item.length() - 1));
+							other.add(amount + " " + item.substring(0, item.length() - 1));
 						} else if (item.equals("food") || item.equals("f")) {
 							food = food + d;
 						} else if (item.equals("home")) {
@@ -82,8 +75,7 @@ public class Expenses {
 					}
 
 					// Calculate total and output data in new file
-					totalexpenses = totalexpenses + food + home + print + film
-							+ bus + metro + uber;
+					totalexpenses = totalexpenses + food + home + print + film + bus + metro + uber;
 					if (food > 0) {
 						writer.println(food + " food");
 					}
@@ -118,13 +110,11 @@ public class Expenses {
 					}
 
 					writer.close();
-					System.out.println("Expenses for " + expenses[k]
-							+ " calculated successfully!");
+					System.out.println("Expenses for " + expenses[k] + " calculated successfully!");
 				}
 
 				else {
-					System.out.println("Error! Check input formatting for "
-							+ expenses[k] + " expenses and try again.");
+					System.out.println("Error! Check input formatting for " + expenses[k] + " expenses and try again.");
 				}
 			}
 		}
