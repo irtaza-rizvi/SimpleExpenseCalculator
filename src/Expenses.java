@@ -4,7 +4,7 @@
 import java.util.*;
 import java.io.*;
 
-public class ExpensesUpdate {
+public class Expenses {
 
 	public static void main(String[] args) throws IOException {
 
