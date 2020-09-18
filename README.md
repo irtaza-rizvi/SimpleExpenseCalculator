@@ -1,3 +1,5 @@
+Author: irtaza.ali@gmail.com
+
 **********Usage***********
 
 Step1:Compile and run Expenses.java.
