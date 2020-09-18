@@ -1,4 +1,4 @@
-**********Usage**********
+**********Usage***********
 
 Step1:Compile and run Expenses.java.
 
