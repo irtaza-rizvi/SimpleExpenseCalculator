@@ -1,5 +1,5 @@
 
-/* Simple Expense Calculator by Irtaza Rizvi */
+/* Simple Expense Calculator by Irtaza Rizvi*/
 
 import java.util.*;
 import java.io.*;
@@ -18,7 +18,7 @@ public class Expenses {
 			// Loop for each month
 			for (int k = 0; k < expenses.length; k = k + 2) {
 				// Reset variables
-				double totalexpenses = 0, food = 0, home = 0, print = 0, film = 0, bus = 0, metro = 0, uber = 0;
+				double totalexpenses = 0, food = 0, home = 0, carrent = 0, film = 0, bus = 0, metro = 0, uber = 0;
 				int cursor1 = 0, cursor2 = 0, cursor3 = 0, i = 0;
 				boolean end = false;
 				ArrayList<String> other = new ArrayList<String>();
@@ -58,8 +58,8 @@ public class Expenses {
 							food = food + d;
 						} else if (item.equals("home")) {
 							home = home + d;
-						} else if (item.equals("print")) {
-							print = print + d;
+						} else if (item.equals("carrent")) {
+							carrent = carrent + d;
 						} else if (item.equals("film")) {
 							film = film + d;
 						} else if (item.equals("bus")) {
@@ -75,15 +75,15 @@ public class Expenses {
 					}
 
 					// Calculate total and output data in new file
-					totalexpenses = totalexpenses + food + home + print + film + bus + metro + uber;
+					totalexpenses = totalexpenses + food + home + carrent + film + bus + metro + uber;
 					if (food > 0) {
 						writer.println(food + " food");
 					}
 					if (home > 0) {
 						writer.println(home + " home");
 					}
-					if (print > 0) {
-						writer.println(print + " print");
+					if (carrent > 0) {
+						writer.println(carrent + " carrent");
 					}
 					if (film > 0) {
 						writer.println(film + " film");
