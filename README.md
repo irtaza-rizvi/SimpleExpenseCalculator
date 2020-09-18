@@ -20,7 +20,7 @@ Note:-
 
 1.Expenses with the item name 'food'/'f', 'home', 'print', 'film', 'bus', 'metro' and 'uber' will be added together.
 
-2.For amounts use only upto one decimal point.
+2.For amounts use only upto one decimal point. For Item use lower case only.
 
 Tip: Adding an 'x' at the end of an item will exclude it from the total. 
 
